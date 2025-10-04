@@ -176,6 +176,12 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-shadow: 0 0 30px var(--shadow-color);
+    /* Chrome compatibility fixes */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Fallback for Chrome */
+    color: var(--primary-color);
 }
 
 .typing-text {
@@ -183,6 +189,9 @@ body {
     animation: typing 3s steps(20, end), blink 1s infinite;
     white-space: nowrap;
     overflow: hidden;
+    /* Ensure text is visible in Chrome */
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
 }
 
 @keyframes typing {
@@ -1017,6 +1026,21 @@ section {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Chrome-specific fixes for text rendering */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .hero-title {
+        -webkit-text-fill-color: var(--primary-color);
+        background: none;
+        text-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color);
+    }
+    
+    .section-title {
+        -webkit-text-fill-color: var(--primary-color);
+        background: none;
+        text-shadow: 0 0 15px var(--primary-color);
+    }
 }
 
 /* Custom scrollbar */

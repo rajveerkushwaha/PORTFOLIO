@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajveer Kushwaha - Cybersecurity Professional</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">&lt;/RK&gt;</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#certifications" class="nav-link">Certifications</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="matrix-rain"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="typing-text">RAJVEER KUSHWAHA</span>
+                </h1>
+                <h2 class="hero-subtitle">Aspiring Cybersecurity Engineer</h2>
+                <p class="hero-tagline">Penetration Testing · Vulnerability Assessment · Secure Software Development</p>
+                <p class="hero-description">
+                    Practical, tool-driven cybersecurity practitioner focused on red-team techniques, 
+                    defensive monitoring, and secure development practices.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#" class="btn btn-secondary" onclick="downloadResume()">Download Resume</a>
+                    <a href="#contact" class="btn btn-accent">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="cyber-avatar">
+                    <div class="avatar-frame">
+                        <img src="myself_professional-removebg-preview.png" alt="Rajveer Kushwaha - Cybersecurity Professional" class="profile-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Professional Summary</h3>
+                    <p>
+                        Aspiring cybersecurity engineer and B.Tech (Computer Science — Cyber Security) student with hands-on experience 
+                        in penetration testing, vulnerability assessment, and security monitoring using open-source tooling. Proficient in 
+                        reconnaissance and exploitation workflows (Nmap, Shodan, Nessus, Metasploit, SQLMap), web application security 
+                        (Burp Suite, OWASP Top 10 mitigations), network packet analysis (Wireshark), and SIEM/endpoint tooling (Splunk, Wazuh). 
+                        Demonstrated ability to design controlled simulations of ransomware behavior and to deliver practical security solutions 
+                        through projects and competitions. Actively building practical offensive and defensive skills via TryHackMe challenges and hackathons.
+                    </p>
+                    
+                    <h3>Education</h3>
+                    <div class="education-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>B.Tech — Computer Science Engineering (Cyber Security)</h4>
+                                <p>Lamrin Tech Skills University, Ropar, Punjab | 2023 – Present</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Intermediate (Science), CBSE</h4>
+                                <p>Little Flower House Nagwa, Varanasi, Uttar Pradesh | 2023</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Matriculation, CBSE</h4>
+                                <p>Dalimss Sunbeam, Chakia Chandauli, Uttar Pradesh | June 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">TryHackMe Rooms Solved</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4+</div>
+                        <div class="stat-label">Major Projects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">6+</div>
+                        <div class="stat-label">Certifications</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-crosshairs"></i> Penetration Testing & Red Teaming</h3>
+                    <p class="skill-description">Reconnaissance → scanning → exploitation → post-exploitation workflows</p>
+                    <div class="skill-items">
+                        <span class="skill-tag">Nmap</span>
+                        <span class="skill-tag">Nessus</span>
+                        <span class="skill-tag">Shodan</span>
+                        <span class="skill-tag">Metasploit</span>
+                        <span class="skill-tag">SQLMap</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-globe"></i> Web Application Security</h3>
+                    <p class="skill-description">Proxy/interception, injection validation, OWASP Top 10 mitigation</p>
+                    <div class="skill-items">
+                        <span class="skill-tag">Burp Suite</span>
+                        <span class="skill-tag">OWASP Top 10</span>
+                        <span class="skill-tag">SQLMap</span>
+                        <span class="skill-tag">Web Security</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-network-wired"></i> Network Analysis & Traffic Inspection</h3>
+                    <p class="skill-description">Packet capture, protocol analysis, anomaly detection</p>
+                    <div class="skill-items">
+                        <span class="skill-tag">Wireshark</span>
+                        <span class="skill-tag">Snort</span>
+                        <span class="skill-tag">Traffic Analysis</span>
+                        <span class="skill-tag">Protocol Analysis</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-shield-alt"></i> SIEM & EDR</h3>
+                    <p class="skill-description">Log aggregation, alerting, incident triage</p>
+                    <div class="skill-items">
+                        <span class="skill-tag">Splunk</span>
+                        <span class="skill-tag">Wazuh</span>
+                        <span class="skill-tag">Log Analysis</span>
+                        <span class="skill-tag">Incident Response</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-desktop"></i> Operating Systems</h3>
+                    <p class="skill-description">Security-focused OS environments</p>
+                    <div class="skill-items">
+                        <span class="skill-tag">Kali Linux</span>
+                        <span class="skill-tag">Parrot OS</span>
+                        <span class="skill-tag">Ubuntu</span>
+                        <span class="skill-tag">BlackArch</span>
+                        <span class="skill-tag">Windows</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Scripting & Secure Development</h3>
+                    <p class="skill-description">Automation, PoC scripts, secure coding principles</p>
+                    <div class="skill-items">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Visual Studio Code</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                    <p class="skill-description">Professional communication and collaboration</p>
+                    <div class="skill-items">
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Technical Documentation</span>
+                        <span class="skill-tag">Team Collaboration</span>
+                        <span class="skill-tag">Security Reporting</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Cyber Swipe — Security Resources Website</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-role">Role: Developer & Content Manager</div>
+                    <p class="project-description">
+                        Designed and maintain a tech website that aggregates tutorials, event updates, and instructional 
+                        resources on cybersecurity topics. Organized content into practical learning tracks; provides 
+                        resources for hands-on labs and links to assessed TryHackMe rooms.
+                    </p>
+                    <div class="project-outcome">
+                        <strong>Outcome:</strong> Improved accessibility of curated learning materials for peers and event participants.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Content Management</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Smart Street Light System</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-role">Role: System Design & Implementation</div>
+                    <p class="project-description">
+                        IoT-driven automated lighting system that adjusts brightness based on ambient light to conserve energy. 
+                        Implemented basic authentication and secure communication between nodes.
+                    </p>
+                    <div class="project-outcome">
+                        <strong>Security Considerations:</strong> Documented potential attack vectors and hardening recommendations.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">IoT</span>
+                        <span class="tech-tag">Arduino</span>
+                        <span class="tech-tag">Sensors</span>
+                        <span class="tech-tag">Security Analysis</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Smart Keypad Locker</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-role">Role: Lead Developer (Authentication Module)</div>
+                    <p class="project-description">
+                        Electronic locker with multi-layer authentication (PIN + optional secondary factor). 
+                        Created threat model for physical tampering and brute force attacks.
+                    </p>
+                    <div class="project-outcome">
+                        <strong>Security Features:</strong> Implemented rate limiting and secure storage of credentials.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Authentication</span>
+                        <span class="tech-tag">Encryption</span>
+                        <span class="tech-tag">Threat Modeling</span>
+                        <span class="tech-tag">Rate Limiting</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Ransom-Sim (Ransomware Simulation)</h3>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-role">Role: Author & Tester</div>
+                    <p class="project-description">
+                        Controlled simulation that mimics common ransomware behaviors for training and defensive testing 
+                        (file discovery, encryption simulation, persistence emulation) in an isolated lab environment. 
+                        Designed to replicate TTPs safely without destructive payloads.
+                    </p>
+                    <div class="project-outcome">
+                        <strong>Impact:</strong> Used for red-team/blue-team tabletop exercises and incident response planning 
+                        and detection tuning in SIEM (Splunk/Wazuh).
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Security Research</span>
+                        <span class="tech-tag">Simulation</span>
+                        <span class="tech-tag">Red Team</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>OWASP Top 10 Security Best Practices</h3>
+                    <p>Practical understanding of top web app risks and mitigation strategies.</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <h3>Kali Linux for Ethical Hackers (Udemy)</h3>
+                    <p>Hands-on tooling and methodology for ethical penetration testing with Kali Linux.</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Real Power of Nmap (Udemy)</h3>
+                    <p>Advanced Nmap scanning techniques and structured reconnaissance workflows.</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Cybersecurity Fundamentals (IBM SkillsBuild)</h3>
+                    <p>Core cybersecurity concepts, risk management, and basic defensive practices.</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Operating Systems Basics (Cisco Networking Academy)</h3>
+                    <p>OS fundamentals relevant to security contexts.</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Communication Skills (TCS iON)</h3>
+                    <p>Professional communication and presentation skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements & Activities</h2>
+            <div class="achievements-grid">
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Winner — Shark Tank Event</h3>
+                    <p>54th ISTE National Annual Convention & Yuva Kaushal Event, Lamrin TSU</p>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>IBM ICE Hackathon 2023</h3>
+                    <p>College representative and participant in team challenges</p>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>TryHackMe Contributor & Practitioner</h3>
+                    <p>Solved 50+ rooms (username: rajveerkushwaha9) to strengthen practical offensive and defensive skills</p>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h3>Content Creator</h3>
+                    <p>Runs a cybersecurity-focused YouTube channel (@raj-veerkushwaha) producing tutorials and walkthroughs</p>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Event Organization</h3>
+                    <p>Organized a mini Cyberthon "Hack The Future" with 50+ participants to encourage hands-on learning</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Varanasi, Uttar Pradesh, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 9653005671</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>rajveerkushwaha9559@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <h3>Connect With Me</h3>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/rajveer-kushwaha/" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/rajveerkushwaha" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://tryhackme.com/p/rajveerkushwaha9" target="_blank" class="social-link">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>TryHackMe</span>
+                        </a>
+                        <a href="https://www.instagram.com/rajveerkushwaha70/" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://x.com/StudyMeans" target="_blank" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                    </div>
+                    <div class="cta-section">
+                        <h4>Call to Action</h4>
+                        <p>"Download my resume to review detailed project artifacts and technical assessments."</p>
+                        <p>"Interested in collaboration or an internship? Contact me for a technical discussion or lab demo."</p>
+                        <div class="cta-buttons">
+                            <a href="#" class="btn btn-primary" onclick="downloadResume()">Download Resume (PDF)</a>
+                            <a href="mailto:rajveerkushwaha9559@gmail.com" class="btn btn-secondary">Email Me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; Rajveer Kushwaha — B.Tech (Cyber Security) | Varanasi, Uttar Pradesh</p>
+                    <p>Built with passion for cybersecurity and web development.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#" onclick="downloadResume()">Resume</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

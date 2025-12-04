@@ -1,76 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} | {{ site.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | Rajveer Kushwaha</title>
+    <link rel="stylesheet" href="{{ "/styles.css" | relative_url }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Navigation -->
-  <header>
     <nav class="navbar">
-      <div class="nav-container container">
-        <div class="nav-logo">
-          <a href="{{ '/' | relative_url }}" class="logo-text">Rajveer Kushwaha</a>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">&lt;/RK&gt;</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/blogs.html" class="nav-link">Blogs</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
-        <ul class="nav-menu nav-links">
-          <li><a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}active{% endif %}">Home</a></li>
-          <li><a href="{{ '/index.html#about' | relative_url }}">About</a></li>
-          <li><a href="{{ '/index.html#skills' | relative_url }}">Skills</a></li>
-          <li><a href="{{ '/index.html#projects' | relative_url }}">Projects</a></li>
-          <li><a href="{{ '/index.html#contact' | relative_url }}">Contact</a></li>
-          <li><a href="{{ '/blogs.html' | relative_url }}" class="{% if page.url == '/blogs.html' %}active{% endif %}">Blogs</a></li>
-        </ul>
-        <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-      </div>
     </nav>
-  </header>
 
-  <!-- Blogs Hero Section -->
-  {% if page.url == '/blogs.html' %}
-  <section class="hero blogs-hero">
-    <div class="hero-background"></div>
-    <div class="matrix-rain"></div>
-
-    <div class="hero-content container">
-      <div class="hero-text">
-        <h1 class="hero-title">Latest Blogs</h1>
-        <p class="hero-subtitle">Insights | Cyber Security | Technology | Threat Intelligence</p>
-        <p class="hero-tagline">Explore my thoughts, research, and technical write-ups on cybersecurity and tech trends.</p>
-      </div>
+    <div style="margin-top: 100px; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 20px;">
+        {{ content }}
     </div>
-  </section>
-  {% endif %}
 
-  <!-- Main Content -->
-  <main class="container">
-    {{ content }}
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content container">
-      <div class="footer-text">
-        <p>© 2025 Rajveer Kushwaha | Cyber Security Engineer</p>
-        <p>Blog Writing Credits: <strong>Rajveer Kushwaha</strong></p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Hamburger Menu Script -->
-  <script>
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-
-    hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      hamburger.classList.toggle('active');
-    });
-  </script>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; Rajveer Kushwaha — B.Tech (Cyber Security)</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{{ "/script.js" | relative_url }}"></script>
 </body>
 </html>

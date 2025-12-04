@@ -3,24 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} | {{ site.title }}</title>
+  <title>{{ page.title }} | Rajveer Kushwaha</title>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-
 </head>
 <body>
-  <!-- Header / Navigation -->
+
+  <!-- Navigation -->
   <header>
     <nav class="navbar">
-      <div class="logo">{{ site.title }}</div>
-      <ul class="nav-links">
-        <li><a href="{{ '/' | relative_url }}">Home</a></li>
-        <li><a href="{{ '/#about' | relative_url }}">About</a></li>
-        <li><a href="{{ '/#skills' | relative_url }}">Skills</a></li>
-        <li><a href="{{ '/#projects' | relative_url }}">Projects</a></li>
-        <li><a href="{{ '/#contact' | relative_url }}">Contact</a></li>
-        <li><a class="active" href="{{ '/blogs.html' | relative_url }}">Blogs</a></li>
-      </ul>
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="{{ '/' | relative_url }}" class="logo-text">Rajveer Kushwaha</a>
+        </div>
+        <ul class="nav-links nav-menu">
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/#about' | relative_url }}">About</a></li>
+          <li><a href="{{ '/#skills' | relative_url }}">Skills</a></li>
+          <li><a href="{{ '/#projects' | relative_url }}">Projects</a></li>
+          <li><a href="{{ '/#contact' | relative_url }}">Contact</a></li>
+          <li><a href="{{ '/blogs.html' | relative_url }}" class="active">Blogs</a></li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
     </nav>
   </header>
 
@@ -34,5 +42,16 @@
     <p>© 2025 Rajveer Kushwaha | Cyber Security Engineer</p>
     <p>Blog Writing Credits: <strong>Rajveer Kushwaha</strong></p>
   </footer>
+
+  <!-- Hamburger Menu Script -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
+
 </body>
 </html>

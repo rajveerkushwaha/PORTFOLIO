@@ -1,22 +1,95 @@
 ---
-layout: default
+layout: null
 title: "Blogs"
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajveer Kushwaha - Blogs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation (Copied from index.html for consistency) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">&lt;/RK&gt;</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#certifications" class="nav-link">Certifications</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+               <li class="nav-item">
+                     <a href="blogs.html" class="nav-link active">Blogs</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
 
-<section class="blogs-section">
-    <h1 class="section-title">Latest Blogs</h1>
-    <p class="section-subtitle">Insights | Cyber Security | Technology | Threat Intelligence</p>
+    <!-- Blog Section -->
+    <!-- Added margin-top to clear the fixed navbar -->
+    <div style="margin-top: 80px; min-height: 80vh;">
+        <section class="blogs-section">
+            <h1 class="section-title">Latest Blogs</h1>
+            <p class="section-subtitle">Insights | Cyber Security | Technology | Threat Intelligence</p>
 
-    <ul class="blog-list">
-        {% for post in site.posts %}
-        <li class="blog-item">
-            <a href="{{ post.url }}" class="blog-link">
-                <h2>{{ post.title }}</h2>
-            </a>
-            <span class="blog-date">{{ post.date | date: "%b %d, %Y" }}</span>
-            <p class="blog-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
-            <a href="{{ post.url }}" class="read-more">Read More →</a>
-        </li>
-        {% endfor %}
-    </ul>
-</section>
+            <ul class="blog-list">
+                {% for post in site.posts %}
+                <li class="blog-item">
+                    <a href="{{ post.url }}" class="blog-link">
+                        <h2>{{ post.title }}</h2>
+                    </a>
+                    <span class="blog-date">{{ post.date | date: "%b %d, %Y" }}</span>
+                    <p class="blog-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+                    <a href="{{ post.url }}" class="read-more">Read More →</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+
+    <!-- Footer (Copied from index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; Rajveer Kushwaha — B.Tech (Cyber Security) | Varanasi, Uttar Pradesh</p>
+                    <p>Built with passion for cybersecurity and web development.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html#home">Home</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#contact">Contact</a>
+                    <a href="#" onclick="downloadResume()">Resume</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -2,6 +2,5 @@ title: "Rajveer Kushwaha Portfolio"
 description: "Cybersecurity Engineer Portfolio & Blog"
 baseurl: ""  
 url: "https://rajveerkushwaha.engineer"
-theme: minima
 plugins:
   - jekyll-feed

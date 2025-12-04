@@ -451,3 +451,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Portfolio website loaded successfully!');
     console.log('👨‍💻 Developed for Rajveer Kushwaha - Cybersecurity Professional');
 });
+// Auto add active class on blogs.html
+if (window.location.pathname.includes("blogs")) {
+    document.querySelector('a[href="blogs.html"]').classList.add("active");
+}

@@ -3,25 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} | Rajveer Kushwaha</title>
+  <title>{{ page.title }} | {{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
-
   <!-- Navigation -->
   <header>
     <nav class="navbar">
-      <div class="nav-container">
+      <div class="nav-container container">
         <div class="nav-logo">
           <a href="{{ '/' | relative_url }}" class="logo-text">Rajveer Kushwaha</a>
         </div>
-        <ul class="nav-links nav-menu">
-          <li><a href="{{ '/' | relative_url }}">Home</a></li>
-          <li><a href="{{ '/#about' | relative_url }}">About</a></li>
-          <li><a href="{{ '/#skills' | relative_url }}">Skills</a></li>
-          <li><a href="{{ '/#projects' | relative_url }}">Projects</a></li>
-          <li><a href="{{ '/#contact' | relative_url }}">Contact</a></li>
-          <li><a href="{{ '/blogs.html' | relative_url }}" class="active">Blogs</a></li>
+        <ul class="nav-menu nav-links">
+          <li><a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}active{% endif %}">Home</a></li>
+          <li><a href="{{ '/index.html#about' | relative_url }}">About</a></li>
+          <li><a href="{{ '/index.html#skills' | relative_url }}">Skills</a></li>
+          <li><a href="{{ '/index.html#projects' | relative_url }}">Projects</a></li>
+          <li><a href="{{ '/index.html#contact' | relative_url }}">Contact</a></li>
+          <li><a href="{{ '/blogs.html' | relative_url }}" class="{% if page.url == '/blogs.html' %}active{% endif %}">Blogs</a></li>
         </ul>
         <div class="hamburger">
           <span class="bar"></span>
@@ -32,10 +31,12 @@
     </nav>
   </header>
 
-  <!-- Hero / Banner Section for Blogs -->
+  <!-- Blogs Hero Section -->
   {% if page.url == '/blogs.html' %}
   <section class="hero blogs-hero">
     <div class="hero-background"></div>
+    <div class="matrix-rain"></div>
+
     <div class="hero-content container">
       <div class="hero-text">
         <h1 class="hero-title">Latest Blogs</h1>
@@ -53,8 +54,12 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p>© 2025 Rajveer Kushwaha | Cyber Security Engineer</p>
-    <p>Blog Writing Credits: <strong>Rajveer Kushwaha</strong></p>
+    <div class="footer-content container">
+      <div class="footer-text">
+        <p>© 2025 Rajveer Kushwaha | Cyber Security Engineer</p>
+        <p>Blog Writing Credits: <strong>Rajveer Kushwaha</strong></p>
+      </div>
+    </div>
   </footer>
 
   <!-- Hamburger Menu Script -->
@@ -64,8 +69,8 @@
 
     hamburger.addEventListener('click', () => {
       navMenu.classList.toggle('active');
+      hamburger.classList.toggle('active');
     });
   </script>
-
 </body>
 </html>

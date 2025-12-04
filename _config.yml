@@ -4,3 +4,9 @@ baseurl: ""
 url: "https://rajveerkushwaha.engineer"
 plugins:
   - jekyll-feed
+# _config.yml addition
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/default-social.jpg  

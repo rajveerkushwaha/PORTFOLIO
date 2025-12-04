@@ -32,8 +32,22 @@
     </nav>
   </header>
 
+  <!-- Hero / Banner Section for Blogs -->
+  {% if page.url == '/blogs.html' %}
+  <section class="hero blogs-hero">
+    <div class="hero-background"></div>
+    <div class="hero-content container">
+      <div class="hero-text">
+        <h1 class="hero-title">Latest Blogs</h1>
+        <p class="hero-subtitle">Insights | Cyber Security | Technology | Threat Intelligence</p>
+        <p class="hero-tagline">Explore my thoughts, research, and technical write-ups on cybersecurity and tech trends.</p>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
   <!-- Main Content -->
-  <main>
+  <main class="container">
     {{ content }}
   </main>
 

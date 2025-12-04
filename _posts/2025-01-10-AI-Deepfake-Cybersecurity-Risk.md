@@ -3,7 +3,7 @@ layout: post
 title: "AI Deepfake Cybersecurity Threats: The New Social Engineering Era"
 description: "Deepfake weaponization, synthetic identity fraud, and the rise of AI-driven cyber exploitation."
 author: "Rajveer"
-feature_image: /assets/blogs/deepfake.jpeg
+feature_image: /assets/blogs/deepfake.jpg
 tags: ["Deepfake", "AI Security", "Cyber Threats", "Identity Fraud", "Social Engineering"]
 ---
 

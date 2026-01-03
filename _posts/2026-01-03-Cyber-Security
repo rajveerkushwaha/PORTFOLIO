@@ -1,0 +1,198 @@
+# Cyber Security – Comprehensive Technical Guide
+
+## Overview
+Cyber Security is the practice of designing, implementing, and maintaining defensive mechanisms to protect systems, networks, applications, and data from cyber threats. It addresses confidentiality, integrity, and availability (CIA triad) of digital assets against both internal and external adversaries.
+
+---
+
+## Cyber Security Architecture
+A robust cyber security architecture is built on **defense-in-depth**, where multiple security layers work together to reduce attack surface and limit impact.
+
+- Preventive controls
+- Detective controls
+- Corrective controls
+- Compensating controls
+
+---
+
+## Major Domains of Cyber Security
+
+### 1. Network Security
+Network security focuses on protecting data during transmission and preventing unauthorized access to network resources.
+
+**Key Components**
+- Firewalls (Stateful, Stateless, NGFW)
+- IDS/IPS (Signature-based, Anomaly-based)
+- Network Access Control (NAC)
+- VPN (IPSec, SSL)
+- Secure network segmentation (VLANs, DMZ)
+
+**Threats Mitigated**
+- MITM attacks
+- Network sniffing
+- Port scanning
+- DDoS attacks
+
+---
+
+### 2. System and Endpoint Security
+Secures operating systems, servers, and user devices from compromise.
+
+**Techniques**
+- OS hardening (disabling unnecessary services)
+- Secure boot
+- Patch and vulnerability management
+- Endpoint Detection and Response (EDR)
+- Privilege restriction and access control
+
+**Common Attacks**
+- Malware
+- Privilege escalation
+- Rootkits
+- Backdoors
+
+---
+
+### 3. Application Security
+Ensures applications are resistant to exploitation and data leakage.
+
+**Security Practices**
+- Secure SDLC
+- Input validation
+- Authentication and authorization controls
+- Error handling and logging
+- Secure API design
+
+**Testing Methods**
+- SAST
+- DAST
+- IAST
+- Manual code review
+
+**Key Risks**
+- SQL Injection
+- XSS
+- CSRF
+- Broken authentication
+
+---
+
+### 4. Cloud Security
+Protects cloud-hosted infrastructure, platforms, and services.
+
+**Security Areas**
+- Identity and Access Management (IAM)
+- Shared responsibility model
+- Secure cloud configurations
+- Encryption at rest and in transit
+- Logging and monitoring
+
+**Threats**
+- Misconfigured storage
+- Credential leakage
+- Insecure APIs
+- Insider threats
+
+---
+
+### 5. Cryptography
+Cryptography secures data by transforming it into unreadable formats for unauthorized users.
+
+**Core Concepts**
+- Symmetric encryption (AES)
+- Asymmetric encryption (RSA, ECC)
+- Hash functions (SHA family)
+- Key exchange mechanisms
+- Digital certificates and PKI
+
+**Use Cases**
+- Secure communication
+- Data integrity verification
+- Authentication
+- Non-repudiation
+
+---
+
+### 6. Identity and Access Management (IAM)
+Controls user identities and permissions.
+
+**Principles**
+- Least privilege
+- Role-Based Access Control (RBAC)
+- Multi-Factor Authentication (MFA)
+- Single Sign-On (SSO)
+
+**Risks**
+- Credential reuse
+- Weak authentication
+- Privilege abuse
+
+---
+
+### 7. Penetration Testing and Ethical Hacking
+Offensive security approach to identify exploitable weaknesses.
+
+**Phases**
+1. Reconnaissance
+2. Scanning and enumeration
+3. Exploitation
+4. Post-exploitation
+5. Reporting and remediation
+
+**Types**
+- Black box
+- White box
+- Gray box
+
+---
+
+### 8. Security Operations (SOC)
+Continuous monitoring and response to security incidents.
+
+**Key Functions**
+- Log analysis
+- Threat detection
+- Incident response
+- Forensics
+- SIEM integration
+
+---
+
+## Common Cyber Threats
+- Phishing and social engineering
+- Ransomware
+- Zero-day exploits
+- Insider threats
+- Advanced Persistent Threats (APT)
+
+---
+
+## Security Tools and Technologies
+- Nmap (network scanning)
+- Wireshark (packet analysis)
+- Metasploit (exploitation framework)
+- Burp Suite (web security testing)
+- Nessus / OpenVAS (vulnerability assessment)
+- SIEM platforms (Splunk, ELK)
+
+---
+
+## Compliance and Standards
+- ISO/IEC 27001
+- NIST Cyber Security Framework
+- GDPR
+- PCI-DSS
+
+---
+
+## Importance of Cyber Security
+- Protects sensitive and critical data
+- Prevents operational disruption
+- Reduces financial and reputational loss
+- Ensures regulatory compliance
+- Strengthens organizational resilience
+
+---
+
+## Conclusion
+Cyber Security is a continuously evolving technical domain that requires a combination of strong foundational knowledge, practical skills, and continuous monitoring. Effective security depends on layered defenses, proactive risk management, and timely incident response to counter modern cyber threats.

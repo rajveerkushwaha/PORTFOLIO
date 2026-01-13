@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOOGLE-DORK ||RAJVEER KUSHWAHA</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Courier New', monospace; min-height: 100vh; overflow-x: hidden; transition: all 0.3s; }
+        body.green-theme { background: #0a0a0a; color: #00ff00; --primary: #00ff00; --secondary: #00aa00; --card: rgba(0,255,0,0.05); --input: #000; --btn: #000; --glow: rgba(0,255,0,0.3); }
+        body.red-theme { background: #0a0000; color: #ff0000; --primary: #ff0000; --secondary: #aa0000; --card: rgba(255,0,0,0.05); --input: #0a0000; --btn: #000; --glow: rgba(255,0,0,0.3); }
+        body.blue-theme { background: #000a1a; color: #00d9ff; --primary: #00d9ff; --secondary: #0088aa; --card: rgba(0,217,255,0.05); --input: #000a1a; --btn: #000; --glow: rgba(0,217,255,0.3); }
+        body.light-theme { background: #f5f5f5; color: #333; --primary: #333; --secondary: #666; --card: #fff; --input: #f9f9f9; --btn: #fff; --glow: rgba(0,0,0,0.1); }
+        
+        .matrix-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.1; }
+        .container { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 40px 0; margin-bottom: 40px; border-bottom: 2px solid var(--primary); }
+        .logo { font-size: 48px; font-weight: bold; color: var(--primary); text-shadow: 0 0 10px var(--primary); margin-bottom: 10px; }
+        .tagline { color: var(--secondary); font-size: 18px; letter-spacing: 2px; margin-bottom: 10px; }
+        .creator { color: var(--primary); font-size: 14px; margin-top: 15px; padding: 10px 20px; border: 1px solid var(--primary); display: inline-block; border-radius: 5px; background: var(--card); }
+        
+        .theme-switcher { position: fixed; top: 20px; right: 20px; z-index: 100; display: flex; gap: 10px; background: var(--card); padding: 10px; border-radius: 8px; border: 1px solid var(--primary); }
+        .theme-btn { width: 40px; height: 40px; border: 2px solid var(--primary); border-radius: 50%; cursor: pointer; transition: all 0.3s; }
+        .theme-btn:hover { transform: scale(1.1); box-shadow: 0 0 15px var(--primary); }
+        .theme-btn.green { background: #00ff00; }
+        .theme-btn.red { background: #ff0000; }
+        .theme-btn.blue { background: #00d9ff; }
+        .theme-btn.light { background: #ffffff; border-color: #333; }
+        .theme-btn.active { box-shadow: 0 0 20px var(--primary); transform: scale(1.15); }
+        
+        .box { background: var(--card); border: 2px solid var(--primary); border-radius: 10px; padding: 30px; margin-bottom: 40px; box-shadow: 0 0 20px var(--glow); }
+        .box-title { color: var(--primary); font-size: 20px; margin-bottom: 20px; text-align: center; }
+        
+        .search-box { display: flex; gap: 10px; margin-bottom: 20px; position: relative; }
+        .search-box input { flex: 1; padding: 15px 20px; background: var(--input); border: 2px solid var(--primary); border-radius: 5px; color: var(--primary); font-size: 16px; font-family: 'Courier New', monospace; outline: none; }
+        .search-box input:focus { box-shadow: 0 0 10px var(--glow); }
+        
+        .history-dropdown { position: absolute; top: 100%; left: 0; right: 130px; background: var(--input); border: 2px solid var(--primary); border-top: none; border-radius: 0 0 5px 5px; max-height: 200px; overflow-y: auto; z-index: 10; display: none; }
+        .history-dropdown.active { display: block; }
+        .history-item { padding: 10px 20px; cursor: pointer; color: var(--primary); border-bottom: 1px solid var(--primary); transition: all 0.2s; }
+        .history-item:hover { background: var(--card); }
+        
+        .btn { padding: 15px 40px; background: var(--primary); border: none; border-radius: 5px; color: var(--btn); font-weight: bold; font-size: 16px; cursor: pointer; font-family: 'Courier New', monospace; transition: all 0.3s; }
+        .btn:hover { opacity: 0.8; box-shadow: 0 0 20px var(--glow); transform: scale(1.05); }
+        .btn-sm { padding: 8px 20px; font-size: 13px; }
+        .btn-outline { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: var(--btn); }
+        
+        .builder-row { display: grid; grid-template-columns: 150px 1fr 120px; gap: 10px; margin-bottom: 15px; align-items: center; }
+        .builder-select, .builder-input { padding: 12px; background: var(--input); border: 2px solid var(--primary); border-radius: 5px; color: var(--primary); font-family: 'Courier New', monospace; outline: none; }
+        .built-query { background: var(--input); border: 2px solid var(--primary); padding: 15px; border-radius: 5px; margin: 20px 0; color: var(--primary); font-size: 14px; word-break: break-all; min-height: 50px; }
+        .builder-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        
+        .results-container { display: none; }
+        .results-container.active { display: block; }
+        .result-header { background: var(--card); border: 2px solid var(--primary); border-radius: 8px; padding: 20px; margin-bottom: 30px; text-align: center; }
+        .result-header h2 { color: var(--primary); font-size: 24px; margin-bottom: 10px; }
+        .result-count { color: var(--secondary); font-size: 16px; margin-bottom: 15px; }
+        .search-term { color: var(--primary); font-weight: bold; background: var(--card); padding: 2px 8px; border-radius: 3px; }
+        
+        .dork-card { background: var(--card); border: 1px solid var(--primary); border-radius: 8px; padding: 20px; margin-bottom: 15px; transition: all 0.3s; }
+        .dork-card:hover { box-shadow: 0 0 15px var(--glow); transform: translateX(5px); }
+        .dork-category { color: var(--primary); font-size: 12px; background: var(--card); padding: 4px 10px; border-radius: 3px; border: 1px solid var(--primary); margin-bottom: 10px; display: inline-block; }
+        .dork-query { background: var(--input); border: 1px solid var(--primary); border-radius: 5px; padding: 15px; margin-bottom: 10px; color: var(--primary); font-family: 'Courier New', monospace; font-size: 14px; word-break: break-all; line-height: 1.6; }
+        .dork-description { color: var(--secondary); font-size: 13px; margin-bottom: 15px; line-height: 1.5; }
+        .dork-actions { display: flex; gap: 10px; }
+        
+        .toast { position: fixed; top: 20px; right: 20px; background: var(--primary); color: var(--btn); padding: 15px 25px; border-radius: 5px; font-weight: bold; box-shadow: 0 0 20px var(--glow); z-index: 1000; animation: slideIn 0.3s ease; }
+        @keyframes slideIn { from { transform: translateX(400px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        
+        footer { text-align: center; padding: 30px; margin-top: 50px; border-top: 2px solid var(--primary); color: var(--secondary); font-size: 12px; }
+        .footer-creator { color: var(--primary); font-size: 14px; margin-top: 10px; font-weight: bold; }
+        
+        @media (max-width: 768px) {
+            .logo { font-size: 32px; }
+            .theme-switcher { top: 10px; right: 10px; padding: 5px; }
+            .theme-btn { width: 30px; height: 30px; }
+            .builder-row { grid-template-columns: 1fr; }
+            .dork-actions { flex-direction: column; }
+        }
+    </style>
+</head>
+<body class="green-theme">
+    <div class="matrix-bg" id="matrixBg"></div>
+    <div class="theme-switcher">
+        <div class="theme-btn green active" onclick="switchTheme('green')"></div>
+        <div class="theme-btn red" onclick="switchTheme('red')"></div>
+        <div class="theme-btn blue" onclick="switchTheme('blue')"></div>
+        <div class="theme-btn light" onclick="switchTheme('light')"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">DORKINGS IS EASY </div>
+            <div class="tagline">YOUR TOOLS IN YOUR HANDS</div>
+            <div class="creator">CREATED BY: RAJVEER KUSHWAHA - CYBER SECURITY</div>
+        </header>
+
+        <div class="box">
+            <div class="box-title">⚡ CUSTOM DORK BUILDER ⚡</div>
+            <div id="builderRules">
+                <div class="builder-row">
+                    <select class="builder-select rule-operator">
+                        <option value="">Operator</option>
+                        <option value="site:">site:</option>
+                        <option value="filetype:">filetype:</option>
+                        <option value="inurl:">inurl:</option>
+                        <option value="intitle:">intitle:</option>
+                        <option value="intext:">intext:</option>
+                        <option value="ext:">ext:</option>
+                        <option value='"'>"exact"</option>
+                    </select>
+                    <input type="text" class="builder-input rule-value" placeholder="Enter value...">
+                    <button class="btn btn-sm" onclick="addRule()">+ ADD</button>
+                </div>
+            </div>
+            <div class="built-query" id="builtQuery">Your custom dork appears here...</div>
+            <div class="builder-actions">
+                <button class="btn btn-sm" onclick="copyCustom()">COPY</button>
+                <button class="btn btn-sm" onclick="launchCustom()">LAUNCH</button>
+                <button class="btn btn-sm btn-outline" onclick="clearBuilder()">CLEAR</button>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="search-box">
+                <input id="searchInput" placeholder='Enter search term (e.g., "rajveer kushwaha")' onfocus="showHistory()">
+                <div class="history-dropdown" id="historyDropdown"></div>
+                <button class="btn" onclick="searchDorks()">GENERATE</button>
+            </div>
+        </div>
+
+        <div class="results-container" id="resultsContainer">
+            <div class="result-header">
+                <h2>Available Google Dorks</h2>
+                <div class="result-count" id="resultCount"></div>
+                <div>
+                    <button class="btn btn-sm" onclick="exportDorks('txt')">TXT</button>
+                    <button class="btn btn-sm" onclick="exportDorks('csv')">CSV</button>
+                    <button class="btn btn-sm" onclick="exportDorks('json')">JSON</button>
+                </div>
+            </div>
+            <div id="dorksList"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div>&copy; 2026 RAJVEER KUSHWAHA | For Educational Use Only</div>
+        <div class="footer-creator">RAJVEER KUSHWAHA - CYBER SECURITY SPECIALIST</div>
+    </footer>
+
+    <script>
+        let history = [], term = '', dorks = [], rules = [];
+        const templates = [
+            { c: "Basic", t: '"{query}"', d: "Exact match" },
+            { c: "Social", t: 'site:facebook.com "{query}"', d: "Facebook" },
+            { c: "Social", t: 'site:linkedin.com "{query}"', d: "LinkedIn" },
+            { c: "Social", t: 'site:github.com "{query}"', d: "GitHub" },
+            { c: "Docs", t: 'filetype:pdf "{query}"', d: "PDFs" },
+            { c: "Docs", t: 'filetype:doc "{query}"', d: "Word docs" },
+            { c: "Docs", t: 'filetype:xls "{query}"', d: "Excel files" },
+            { c: "Email", t: '"{query}" email', d: "Email addresses" },
+            { c: "Profile", t: 'intitle:"{query}"', d: "In titles" },
+            { c: "Profile", t: 'inurl:"{query}"', d: "In URLs" },
+            { c: "Profile", t: '"{query}" profile', d: "Profiles" },
+            { c: "Web", t: 'site:*.com "{query}"', d: ".com domains" },
+            { c: "Web", t: 'site:*.edu "{query}"', d: "Education" },
+            { c: "News", t: 'inurl:blog "{query}"', d: "Blog posts" },
+            { c: "Business", t: '"{query}" company', d: "Company info" }
+        ];
+
+        function switchTheme(t) {
+            document.body.className = t + '-theme';
+            document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector(`.theme-btn.${t}`).classList.add('active');
+        }
+
+        function showHistory() {
+            const d = document.getElementById('historyDropdown');
+            if (history.length > 0) {
+                d.innerHTML = history.map(h => `<div class="history-item" onclick="selectHistory('${h}')">${h}</div>`).join('');
+                d.classList.add('active');
+            }
+        }
+
+        function selectHistory(h) {
+            document.getElementById('searchInput').value = h;
+            document.getElementById('historyDropdown').classList.remove('active');
+            searchDorks();
+        }
+
+        document.addEventListener('click', e => {
+            if (!e.target.closest('.search-box')) document.getElementById('historyDropdown').classList.remove('active');
+        });
+
+        function addRule() {
+            const ops = document.querySelectorAll('.rule-operator');
+            const vals = document.querySelectorAll('.rule-value');
+            const op = ops[ops.length - 1].value;
+            const val = vals[vals.length - 1].value.trim();
+
+            if (op && val) {
+                rules.push({ op, val });
+                updateQuery();
+                
+                const div = document.getElementById('builderRules');
+                const row = document.createElement('div');
+                row.className = 'builder-row';
+                row.innerHTML = `
+                    <select class="builder-select rule-operator">
+                        <option value="">Operator</option>
+                        <option value="site:">site:</option>
+                        <option value="filetype:">filetype:</option>
+                        <option value="inurl:">inurl:</option>
+                        <option value="intitle:">intitle:</option>
+                        <option value="intext:">intext:</option>
+                        <option value="ext:">ext:</option>
+                        <option value='"'>"exact"</option>
+                    </select>
+                    <input type="text" class="builder-input rule-value" placeholder="Enter value...">
+                    <button class="btn btn-sm btn-outline" onclick="removeRule(this)">REMOVE</button>
+                `;
+                div.appendChild(row);
+                ops[ops.length - 1].value = '';
+                vals[vals.length - 1].value = '';
+            } else {
+                toast('Select operator and value!');
+            }
+        }
+
+        function removeRule(btn) {
+            const row = btn.closest('.builder-row');
+            const idx = Array.from(row.parentElement.children).indexOf(row) - 1;
+            if (idx >= 0) {
+                rules.splice(idx, 1);
+                row.remove();
+                updateQuery();
+            }
+        }
+
+        function updateQuery() {
+            const q = document.getElementById('builtQuery');
+            if (rules.length === 0) {
+                q.textContent = 'Your custom dork appears here...';
+            } else {
+                q.textContent = rules.map(r => r.op === '"' ? `"${r.val}"` : r.op + r.val).join(' ');
+            }
+        }
+
+        function copyCustom() {
+            const q = document.getElementById('builtQuery').textContent;
+            if (q !== 'Your custom dork appears here...') {
+                copy(q);
+            } else {
+                toast('Build a dork first!');
+            }
+        }
+
+        function launchCustom() {
+            const q = document.getElementById('builtQuery').textContent;
+            if (q !== 'Your custom dork appears here...') {
+                launch(q);
+            } else {
+                toast('Build a dork first!');
+            }
+        }
+
+        function clearBuilder() {
+            rules = [];
+            document.getElementById('builderRules').innerHTML = `
+                <div class="builder-row">
+                    <select class="builder-select rule-operator">
+                        <option value="">Operator</option>
+                        <option value="site:">site:</option>
+                        <option value="filetype:">filetype:</option>
+                        <option value="inurl:">inurl:</option>
+                        <option value="intitle:">intitle:</option>
+                        <option value="intext:">intext:</option>
+                        <option value="ext:">ext:</option>
+                        <option value='"'>"exact"</option>
+                    </select>
+                    <input type="text" class="builder-input rule-value" placeholder="Enter value...">
+                    <button class="btn btn-sm" onclick="addRule()">+ ADD</button>
+                </div>
+            `;
+            updateQuery();
+        }
+
+        function searchDorks() {
+            term = document.getElementById('searchInput').value.trim();
+            if (!term) { toast('Enter a search term!'); return; }
+            
+            if (!history.includes(term)) {
+                history.unshift(term);
+                if (history.length > 10) history.pop();
+            }
+            
+            dorks = templates.map(t => ({ c: t.c, q: t.t.replace(/{query}/g, term), d: t.d }));
+            
+            document.getElementById('resultCount').innerHTML = `<span class="search-term">${dorks.length}</span> dorks for: <span class="search-term">${term}</span>`;
+            document.getElementById('dorksList').innerHTML = dorks.map(d => `
+                <div class="dork-card">
+                    <div class="dork-category">${d.c}</div>
+                    <div class="dork-query">${d.q}</div>
+                    <div class="dork-description">${d.d}</div>
+                    <div class="dork-actions">
+                        <button class="btn btn-sm btn-outline" onclick='copy(\`${d.q.replace(/`/g, '\\`')}\`)'>COPY</button>
+                        <button class="btn btn-sm" onclick='launch(\`${d.q.replace(/`/g, '\\`')}\`)'>LAUNCH</button>
+                    </div>
+                </div>
+            `).join('');
+            
+            document.getElementById('resultsContainer').classList.add('active');
+            document.getElementById('resultsContainer').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function copy(q) {
+            navigator.clipboard.writeText(q).then(() => toast('✓ Copied!')).catch(() => {
+                const t = document.createElement('textarea');
+                t.value = q;
+                document.body.appendChild(t);
+                t.select();
+                document.execCommand('copy');
+                document.body.removeChild(t);
+                toast('✓ Copied!');
+            });
+        }
+
+        function launch(q) {
+            window.open(`https://www.google.com/search?q=${encodeURIComponent(q)}`, '_blank');
+        }
+
+        function toast(msg) {
+            const t = document.createElement('div');
+            t.className = 'toast';
+            t.textContent = msg;
+            document.body.appendChild(t);
+            setTimeout(() => t.remove(), 2000);
+        }
+
+        function exportDorks(type) {
+            if (!dorks.length) { toast('Generate dorks first!'); return; }
+            
+            let content, filename, mime;
+            if (type === 'txt') {
+                content = dorks.map(d => `${d.c}: ${d.q}`).join('\n');
+                filename = `dorks_${term}.txt`;
+                mime = 'text/plain';
+            } else if (type === 'csv') {
+                content = 'Category,Query,Description\n' + dorks.map(d => `"${d.c}","${d.q}","${d.d}"`).join('\n');
+                filename = `dorks_${term}.csv`;
+                mime = 'text/csv';
+            } else {
+                content = JSON.stringify({ term, dorks }, null, 2);
+                filename = `dorks_${term}.json`;
+                mime = 'application/json';
+            }
+            
+            const blob = new Blob([content], { type: mime });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(url);
+            toast(`✓ Exported ${type.toUpperCase()}!`);
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', e => {
+            if (e.key === 'Enter') searchDorks();
+        });
+
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        document.getElementById('matrixBg').appendChild(canvas);
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const drops = Array(Math.floor(canvas.width / 14)).fill(1);
+        
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('color');
+            ctx.font = '14px monospace';
+            for (let i = 0; i < drops.length; i++) {
+                ctx.fillText('01'[Math.floor(Math.random() * 2)], i * 14, drops[i] * 14);
+                if (drops[i] * 14 > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 50);
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+    </script>
+</body>
+</html>
